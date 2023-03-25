@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<style>
+  body {
+  margin: auto;
+}
+  #news {
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+img {
+    max-width: 300px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+}
+
+</style>
+<body>
+  <h1 id="header"></h1>
+  <div id="image"></div>
+  <div id="news"></div>
+</body>
+
+<script>
+    async function myfetch() {
+      const res = await fetch('http://localhost:8000/news');
+      const news = await res.json();
+
+      document.getElementById('header').innerHTML = news.category;
+      document.getElementById('news').innerHTML = news.body;
+      document.getElementById('image').innerHTML = "<img src=" + news.image_url + ' alt="alternative-text">';
+      
+
+
+      console.log(news);
+    }
+
+    myfetch();
+</script>
+</html>
