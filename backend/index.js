@@ -16,7 +16,7 @@ app.get('/news', (req, res) => {
         by police after he left. \
         The BBC's Caroline Davies travelled with Mr Khan. \
       ",
-    image_url: "/home/admin-2023/Desktop/backend/images/image.png",
+    image_url: "../backend/images/image.png",
   })
 })
 
